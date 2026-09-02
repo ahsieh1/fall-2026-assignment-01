@@ -6,7 +6,7 @@ export type PostItem = {
 
 export async function fetchPostBatch(postIds: number[]): Promise<PostItem[]> {
   const fetchPromises = postIds.map(async (id) => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts/${id}',);
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
     const post = (await response.json()) as PostItem;
     return post;
   });
